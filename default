@@ -1,0 +1,21 @@
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	root /var/www/wordpress;
+	index index.html index.htm index.nginx-debian.html;
+	server_name _;
+	
+	location / {
+		index index.php index.html index.htm;
+	}
+
+	location ~\.php$ {
+		set $root_path /var/www/wordpress;
+		fastcgi_pass unix:/run/php/php7.4-fpm.sock;
+		fastcgi_index index.php;
+		fastcgi_param SCRIPT_FILENAME $root_path$fastcgi_script_name;
+		include fastcgi_params;
+		fastcgi_param DOCUMENT_ROOT $root_path;
+	}
+}
