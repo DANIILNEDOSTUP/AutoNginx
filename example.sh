@@ -45,9 +45,6 @@ FLUSH PRIVILEGES;
 EOF
 echo "DB installed"
 
-
-
-
 sudo cd /tmp
 sudo wget https://wordpress.org/latest.tar.gz
 sudo tar -xvzf latest.tar.gz
