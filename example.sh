@@ -15,8 +15,8 @@ echo "Install Nginx"
 sudo apt-get install nginx -y
 echo "Nginx installed"
 
-sudo cp -R  ~/default /etc/nginx/sites-enabled/
-sudo cp -R ~/index.php /var/www/html/
+sudo cp -R default /etc/nginx/sites-enabled/
+sudo cp -R index.php /var/www/html/
 echo "You config is added"
 
 sudo nginx -t
@@ -45,10 +45,17 @@ echo "Status of your NGINX"
 sudo apt-get install mariadb-server mariadb-client -y
 sudo systemctl enable mariadb.service
 sudo systemctl start mariadb.service
+<<<<<<< HEAD
 sudo mysql -u root -p << EOF
 CREATE DATABASE $db_name;
 CREATE USER '$db_user'@'localhost' IDENTIFIED BY '$db_pass';
 GRANT ALL ON $db_name.* TO '$db_user'@'localhost' WITH GRANT OPTION;
+=======
+sudo mysql -u root << EOF
+CREATE DATABASE wpdb300;
+CREATE USER 'wpdbuser300'@'localhost' IDENTIFIED BY '23mtk456';
+GRANT ALL ON wpdb300.* TO 'wpdbuser300'@'localhost' WITH GRANT OPTION;
+>>>>>>> 8762dea4b585a6f631814192bfc1eaffe5ac5b96
 FLUSH PRIVILEGES;
 EOF
 echo "DB installed"
@@ -59,7 +66,11 @@ sudo tar -xvzf latest.tar.gz
 sudo mv wordpress /var/www/wordpress
 sudo chown -R www-data:www-data /var/www/wordpress/
 sudo chmod -R 777 /var/www/wordpress
+<<<<<<< HEAD
 #sudo cp -R ~/wp-config-sample.php /var/www/wordpress/wp-config.php
+=======
+sudo cp -R wp-config-sample.php /var/www/wordpress/wp-config.php
+>>>>>>> 8762dea4b585a6f631814192bfc1eaffe5ac5b96
 sudo systemctl restart nginx.service
 sudo systemctl restart php7.4-fpm
 
