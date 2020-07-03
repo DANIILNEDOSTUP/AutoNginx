@@ -46,7 +46,7 @@ sudo apt-get install mariadb-server mariadb-client -y
 sudo systemctl enable mariadb.service
 sudo systemctl start mariadb.service
 <<<<<<< HEAD
-sudo mysql -u root -p << EOF
+sudo mysql -u root << EOF
 CREATE DATABASE $db_name;
 CREATE USER '$db_user'@'localhost' IDENTIFIED BY '$db_pass';
 GRANT ALL ON $db_name.* TO '$db_user'@'localhost' WITH GRANT OPTION;
